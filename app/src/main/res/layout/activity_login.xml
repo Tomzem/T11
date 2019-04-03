@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.LoginActivity">
+
+    <ImageView
+        android:id="@+id/img_login_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@color/colorLoginBackground"
+        android:background="@drawable/login_background" />
+
+    <ImageView
+        android:id="@+id/img_login_logo"
+        android:layout_width="@dimen/widget_size_48"
+        android:layout_height="@dimen/widget_size_48"
+        android:layout_marginTop="@dimen/widget_size_60"
+        android:layout_marginLeft="@dimen/widget_size_40"
+        android:layout_marginStart="@dimen/widget_size_40"
+        android:src="@mipmap/ic_t" />
+
+    <TextView
+        android:id="@+id/tv_login_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_login_logo"
+        android:layout_marginLeft="@dimen/widget_size_40"
+        android:layout_marginStart="@dimen/widget_size_40"
+        android:layout_marginTop="@dimen/widget_size_20"
+        android:text="@string/login_welcome"
+        android:textSize="@dimen/font_size_22"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"/>
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_login_welcome"
+        android:layout_marginLeft="@dimen/widget_size_40"
+        android:layout_marginStart="@dimen/widget_size_40"
+        android:layout_marginTop="@dimen/widget_size_20"
+        android:text="@string/user_name"
+        android:textColor="@color/colorWhite"/>
+
+    <EditText
+        android:id="@+id/et_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_user_name"
+        android:layout_marginLeft="@dimen/widget_size_40"
+        android:layout_marginStart="@dimen/widget_size_40"
+        android:layout_marginRight="@dimen/widget_size_40"
+        android:layout_marginEnd="@dimen/widget_size_40"
+        android:layout_marginTop="@dimen/widget_size_7"
+        android:inputType="numberSigned"
+        android:hint="@string/login_hint_name"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorHintText"/>
+
+    <TextView
+        android:id="@+id/tv_user_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_user_name"
+        android:layout_marginLeft="@dimen/widget_size_40"
+        android:layout_marginStart="@dimen/widget_size_40"
+        android:layout_marginTop="@dimen/widget_size_7"
+        android:text="@string/user_password"
+        android:textColor="@color/colorWhite"/>
+
+    <EditText
+        android:id="@+id/et_user_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_user_password"
+        android:layout_marginLeft="@dimen/widget_size_40"
+        android:layout_marginStart="@dimen/widget_size_40"
+        android:layout_marginRight="@dimen/widget_size_40"
+        android:layout_marginEnd="@dimen/widget_size_40"
+        android:layout_marginTop="@dimen/widget_size_7"
+        android:inputType="textPassword"
+        android:hint="@string/login_hint_password"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorHintText"/>
+
+    <Button
+        android:id="@+id/btn_login_system"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_size_48"
+        android:layout_below="@id/et_user_password"
+        android:layout_marginLeft="@dimen/widget_size_40"
+        android:layout_marginStart="@dimen/widget_size_40"
+        android:layout_marginRight="@dimen/widget_size_40"
+        android:layout_marginEnd="@dimen/widget_size_40"
+        android:layout_marginTop="@dimen/widget_size_12"
+        android:text="@string/login_text"
+        android:textSize="@dimen/font_size_16"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/login_button_selector"/>
+
+    <TextView
+        android:id="@+id/tv_forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login_system"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="@dimen/widget_size_40"
+        android:layout_marginEnd="@dimen/widget_size_40"
+        android:layout_marginTop="@dimen/widget_size_12"
+        android:text="@string/forget_password"
+        android:textColor="@color/colorWhite" />
+
+</RelativeLayout>

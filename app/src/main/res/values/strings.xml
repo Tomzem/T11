@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">T11</string>
+
+    <string name="login_welcome">欢迎使用T11</string>
+    <string name="login_welcome_username">你好,%s!\n欢迎使用T11</string>
+    <string name="user_name">用户名</string>
+    <string name="user_password">密码</string>
+    <string name="login_hint_name">请输入用户名</string>
+    <string name="login_hint_password">请输入密码</string>
+    <string name="login_text">登录</string>
+    <string name="forget_password">忘记密码</string>
+</resources>
