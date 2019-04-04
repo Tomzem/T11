@@ -1,6 +1,7 @@
 package com.tomze.t11.ui.activity;
 
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.tomze.t11.R;
 import com.tomze.t11.base.BaseActivity;
 import com.tomze.t11.util.StatusBarUtil;
+import com.tomze.t11.util.T11Toast;
 
 import butterknife.BindView;
 
@@ -31,6 +33,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @BindView(R.id.et_user_name)
     EditText mEtUserName;
 
+    @BindView(R.id.et_user_password)
+    EditText mEtUserPassword;
+
+    // 登录按钮默认不能点击
+    private boolean isLoginBtnClick = false;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_login;
@@ -40,11 +48,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     protected void initBefore() {
         //用来设置整体下移，状态栏沉浸
         StatusBarUtil.setRootViewFitsSystemWindows(this, false);
+        //TODO：获取本地存储的当前登陆过的用户信息
     }
 
     @Override
     protected void initView() {
         mEtUserName.addTextChangedListener(this);
+        mEtUserPassword.addTextChangedListener(this);
         mBtLoginSystem.setOnClickListener(this);
         mTvForgetPassword.setOnClickListener(this);
     }
@@ -53,6 +63,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_login_system:
+                if (!isLoginBtnClick) {
+                    return;
+                }
+                T11Toast.success(mContext, "可以登陆").show();
                 break;
             case R.id.tv_forget_password:
                 break;
@@ -72,11 +86,24 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void afterTextChanged(Editable s) {
         String inputText = s.toString();
-        if (s.toString().length() > 0) {
+        String inputUserName = mEtUserName.getText().toString().trim();
+        String inputUserPassword = mEtUserPassword.getText().toString().trim();
+        if (inputUserPassword.length() < 6) {
+            isLoginBtnClick = false;
+            mBtLoginSystem.setBackgroundResource(R.drawable.login_button_dis_enable);
+        }
+        if (TextUtils.isEmpty(inputText)) {
+            isLoginBtnClick = false;
+            mTvLoginWelcome.setText(getResources().getString(R.string.login_welcome));
+        } else if (inputText.equals(inputUserName)) {
+            // 输入用户名
             String welcomeText = String.format(getResources().getString(R.string.login_welcome_username), inputText);
             mTvLoginWelcome.setText(welcomeText);
-        } else {
-            mTvLoginWelcome.setText(getResources().getString(R.string.login_welcome));
+        }
+        //输入密码
+        if (inputUserPassword.length() > 5 && inputUserName.length() > 5) {
+            isLoginBtnClick = true;
+            mBtLoginSystem.setBackgroundResource(R.drawable.login_button_selector);
         }
     }
 }

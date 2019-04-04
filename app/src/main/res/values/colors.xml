@@ -4,12 +4,15 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="colorTransparent">#00000000</color>
-
-    <color name="colorLoginBackground">#80000000</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <!--登录界面使用色-->
+    <color name="colorLoginBackground">#80000000</color>
     <color name="colorHintText">#AAAAAA</color>
-    <color name="colorBtnBackground">#80999999</color>
-    <color name="colorBtnBackgroundSelected">#80444444</color>
+    <color name="colorBtnBackgroundDisEnabled">#80999999</color>
+    <color name="colorBtnBackgroundNormal">#3F81B5</color>
+    <color name="colorBtnBackgroundSelected">#3F51B5</color>
+    <!--Toast使用色-->
     <color name="defaultTextColor">#FFFFFF</color>
     <color name="errorColor">#D50000</color>
     <color name="infoColor">#3F51B5</color>
