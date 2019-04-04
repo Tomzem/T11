@@ -5,6 +5,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.os.Build;
+import android.os.SystemClock;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
@@ -20,31 +21,42 @@ import com.tomze.t11.R;
  * description: 闲杂工具类集合
  */
 public final class T11Utils {
+    static long[] mClicks = new long[2];
 
     private T11Utils() {}
 
-    public static Drawable tintIcon(Drawable drawable, @ColorInt int tintColor) {
+    /**
+     * 判断是否双击，快速的重复请求
+     * @return
+     */
+    public static boolean isDoubleClick() {
+        System.arraycopy(mClicks, 1, mClicks, 0, mClicks.length-1);
+        mClicks[mClicks.length-1] = SystemClock.uptimeMillis();
+        return mClicks[0] > (SystemClock.uptimeMillis() - 500);
+    }
+
+    static Drawable tintIcon(Drawable drawable, @ColorInt int tintColor) {
         drawable.setColorFilter(tintColor, PorterDuff.Mode.SRC_IN);
         return drawable;
     }
 
-    public static Drawable tint9PatchDrawableFrame(Context context, @ColorInt int tintColor) {
+    static Drawable tint9PatchDrawableFrame(Context context, @ColorInt int tintColor) {
         final NinePatchDrawable toastDrawable = (NinePatchDrawable) getDrawable(context, R.drawable.toast_frame);
         return tintIcon(toastDrawable, tintColor);
     }
 
-    public static void setBackground(View view, Drawable drawable) {
+    static void setBackground(View view, Drawable drawable) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
             view.setBackground(drawable);
         else
             view.setBackgroundDrawable(drawable);
     }
 
-    public static Drawable getDrawable(Context context, @DrawableRes int id) {
+    static Drawable getDrawable(Context context, @DrawableRes int id) {
         return AppCompatResources.getDrawable(context, id);
     }
 
-    public static int getColor(Context context, @ColorRes int color){
+    static int getColor(Context context, @ColorRes int color){
         return ContextCompat.getColor(context, color);
     }
 }
