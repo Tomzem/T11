@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/widget_size_60"
+    android:orientation="horizontal"
+    android:background="@color/colorWhite">
+
+    <LinearLayout
+        android:id="@+id/tab_index"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/ibt_index"
+            android:layout_width="@dimen/widget_size_32"
+            android:layout_height= "@dimen/widget_size_32"
+            android:background="@null"
+            android:src="@mipmap/ic_t"
+            android:clickable="false"
+            android:elevation="@dimen/widget_size_40"
+            tools:targetApi="lollipop" />
+        <TextView
+            android:id="@+id/tv_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_size_3"
+            android:textSize="@dimen/font_size_14"
+            android:textColor="@color/colorBlack"
+            android:text="@string/bottom_menu_project"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tab_navigation"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/ibt_navigation"
+            android:layout_width="@dimen/widget_size_32"
+            android:layout_height= "@dimen/widget_size_32"
+            android:background="@null"
+            android:src="@mipmap/ic_t"
+            android:clickable="false"/>
+        <TextView
+            android:id="@+id/tv_navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_size_3"
+            android:textSize="@dimen/font_size_14"
+            android:textColor="@color/colorBlack"
+            android:text="@string/bottom_menu_organization"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tab_self"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+        <ImageButton
+            android:id="@+id/ibt_self"
+            android:layout_width="@dimen/widget_size_32"
+            android:layout_height= "@dimen/widget_size_32"
+            android:background="@null"
+            android:src="@mipmap/ic_t"
+            android:clickable="false"/>
+        <TextView
+            android:id="@+id/tv_self"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/widget_size_3"
+            android:textSize="@dimen/font_size_14"
+            android:textColor="@color/colorBlack"
+            android:text="@string/bottom_menu_self"/>
+    </LinearLayout>
+
+</LinearLayout>

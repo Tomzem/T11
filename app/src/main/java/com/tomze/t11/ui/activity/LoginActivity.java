@@ -1,5 +1,6 @@
 package com.tomze.t11.ui.activity;
 
+import android.content.Intent;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -48,7 +49,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     protected void initBefore() {
         //用来设置整体下移，状态栏沉浸
         StatusBarUtil.setRootViewFitsSystemWindows(this, false);
-        //TODO：获取本地存储的当前登陆过的用户信息
+        //TODO：获取本地存储的当前登陆过的用户信息 用来与输入的用户进行匹配
     }
 
     @Override
@@ -66,11 +67,18 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 if (!isLoginBtnClick) {
                     return;
                 }
-                T11Toast.success(mContext, "可以登陆").show();
+                toLogin();
                 break;
             case R.id.tv_forget_password:
                 break;
         }
+    }
+
+    private void toLogin() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+        T11Toast.success(mContext, "登录成功").show();
     }
 
     @Override

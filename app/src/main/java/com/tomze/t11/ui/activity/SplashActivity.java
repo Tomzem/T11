@@ -9,6 +9,11 @@ import com.tomze.t11.base.BaseActivity;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Author:Tomzem
+ * Data:2019.04.03
+ * Des:首页跳转页面
+ */
 public class SplashActivity extends BaseActivity {
 
     private int JUMP_TIME = ConfigManager.DEFAULT_JUMP_TIME;
