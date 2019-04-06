@@ -22,7 +22,7 @@ import com.tomze.t11.R;
 /**
  * author:Tomze
  * date:2019/4/4 15:12
- * description:
+ * description:T11Toast
  */
 public class T11Toast {
     private static final Typeface LOADED_TOAST_TYPEFACE = Typeface.create("sans-serif-condensed", Typeface.NORMAL);
@@ -234,21 +234,21 @@ public class T11Toast {
     }
 
     @CheckResult
-    public static Toast custom(@NonNull Context context, @StringRes int message, Drawable icon,
+    private static Toast custom(@NonNull Context context, @StringRes int message, Drawable icon,
                                int duration, boolean withIcon) {
         return custom(context, context.getString(message), icon, -1, T11Utils.getColor(context, R.color.defaultTextColor),
                 duration, withIcon, false);
     }
 
     @CheckResult
-    public static Toast custom(@NonNull Context context, @NonNull CharSequence message, Drawable icon,
+    private static Toast custom(@NonNull Context context, @NonNull CharSequence message, Drawable icon,
                                int duration, boolean withIcon) {
         return custom(context, message, icon, -1, T11Utils.getColor(context, R.color.defaultTextColor),
                 duration, withIcon, false);
     }
 
     @CheckResult
-    public static Toast custom(@NonNull Context context, @StringRes int message, @DrawableRes int iconRes,
+    private static Toast custom(@NonNull Context context, @StringRes int message, @DrawableRes int iconRes,
                                @ColorRes int tintColorRes, int duration,
                                boolean withIcon, boolean shouldTint) {
         return custom(context, context.getString(message), T11Utils.getDrawable(context, iconRes),
@@ -257,7 +257,7 @@ public class T11Toast {
     }
 
     @CheckResult
-    public static Toast custom(@NonNull Context context, @NonNull CharSequence message, @DrawableRes int iconRes,
+    private static Toast custom(@NonNull Context context, @NonNull CharSequence message, @DrawableRes int iconRes,
                                @ColorRes int tintColorRes, int duration,
                                boolean withIcon, boolean shouldTint) {
         return custom(context, message, T11Utils.getDrawable(context, iconRes),
@@ -266,7 +266,7 @@ public class T11Toast {
     }
 
     @CheckResult
-    public static Toast custom(@NonNull Context context, @StringRes int message, Drawable icon,
+    private static Toast custom(@NonNull Context context, @StringRes int message, Drawable icon,
                                @ColorRes int tintColorRes, int duration,
                                boolean withIcon, boolean shouldTint) {
         return custom(context, context.getString(message), icon, T11Utils.getColor(context, tintColorRes),
@@ -274,7 +274,7 @@ public class T11Toast {
     }
 
     @CheckResult
-    public static Toast custom(@NonNull Context context, @StringRes int message, Drawable icon,
+    private static Toast custom(@NonNull Context context, @StringRes int message, Drawable icon,
                                @ColorRes int tintColorRes, @ColorRes int textColorRes, int duration,
                                boolean withIcon, boolean shouldTint) {
         return custom(context, context.getString(message), icon, T11Utils.getColor(context, tintColorRes),
@@ -283,7 +283,7 @@ public class T11Toast {
 
     @SuppressLint("ShowToast")
     @CheckResult
-    public static Toast custom(@NonNull Context context, @NonNull CharSequence message, Drawable icon,
+    private static Toast custom(@NonNull Context context, @NonNull CharSequence message, Drawable icon,
                                @ColorInt int tintColor, @ColorInt int textColor, int duration,
                                boolean withIcon, boolean shouldTint) {
         final Toast currentToast = Toast.makeText(context, "", duration);

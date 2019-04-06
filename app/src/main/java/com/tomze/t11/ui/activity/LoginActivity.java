@@ -16,7 +16,11 @@ import com.tomze.t11.util.StatusBarUtil;
 import com.tomze.t11.util.T11Toast;
 
 import butterknife.BindView;
-
+/**
+ * @author Tomze
+ * @time 2019年04月03日 21:03
+ * @desc Activity登录
+ */
 public class LoginActivity extends BaseActivity implements View.OnClickListener,TextWatcher{
 
     @BindView(R.id.img_login_background)

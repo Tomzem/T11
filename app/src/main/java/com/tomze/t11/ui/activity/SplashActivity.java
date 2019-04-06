@@ -10,9 +10,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Author:Tomzem
- * Data:2019.04.03
- * Des:首页跳转页面
+ * @author Tomze
+ * @time 2019.04.03
+ * @desc 首页跳转页面
  */
 public class SplashActivity extends BaseActivity {
 
