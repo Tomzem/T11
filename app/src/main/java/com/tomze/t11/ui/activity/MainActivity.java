@@ -2,6 +2,7 @@ package com.tomze.t11.ui.activity;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import com.tomze.t11.R;
 import com.tomze.t11.ui.fragment.OrganizationFragment;
 import com.tomze.t11.ui.fragment.ProjectFragment;
 import com.tomze.t11.ui.fragment.SelfFragment;
+import com.tomze.t11.util.StatusBarUtil;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -31,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
+        StatusBarUtil.setStatusBarDarkTheme(this, true);
+        StatusBarUtil.setStatusBarColor(this, getResources().getColor(R.color.colorBackground));
         unbinder = ButterKnife.bind(this);
         setSelect(2);
     }

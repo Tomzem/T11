@@ -6,6 +6,7 @@
     <color name="colorTransparent">#00000000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorBackground">#F9F9F9</color>
     <!--登录界面使用色-->
     <color name="colorLoginBackground">#80000000</color>
     <color name="colorHintText">#AAAAAA</color>
