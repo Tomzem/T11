@@ -1,6 +1,9 @@
 package com.tomze.t11.base.mvp;
 
 
+import android.content.Context;
+
+import com.tomze.t11.app.T11Application;
 import com.tomze.t11.base.BaseActivity;
 
 /**
@@ -28,5 +31,13 @@ public abstract class BasePresenterActivity<T extends BasePre> extends BaseActiv
     @Override
     public void setPresenter(T presenter) {
         this.mPresenter = presenter;
+    }
+
+    public Context getContext() {
+        if (mContext != null){
+            return mContext;
+        } else {
+            return T11Application.getContext();
+        }
     }
 }
