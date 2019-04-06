@@ -1,8 +1,6 @@
 package com.tomze.t11.ui.pre;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.widget.Toast;
 
 import com.tomze.t11.base.mvp.BasePresenter;
 import com.tomze.t11.bean.User;
@@ -33,7 +31,7 @@ public class LoginPresenter extends BasePresenter<LoginActivity> {
             user.userRealName = "张三";
             saveUserInfo(user);
             getView().toJump();
-            T11Toast.error(getView().getContext(), "登录成功").show();
+            T11Toast.success(getView().getContext(), "登录成功").show();
         } else {
             T11Toast.error(getView().getContext(), "登录失败").show();
         }

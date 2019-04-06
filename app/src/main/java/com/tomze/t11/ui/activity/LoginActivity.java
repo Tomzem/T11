@@ -54,10 +54,13 @@ public class LoginActivity extends BasePresenterActivity<LoginPresenter> impleme
     @Override
     protected void initBefore() {
         super.initBefore();
+        if (T11Utils.isDebug(this)) {
+            mPresenter.login("111111", "111111");
+        }
         //用来设置整体下移，状态栏沉浸
         StatusBarUtil.setRootViewFitsSystemWindows(this, false);
         //获取本地存储的当前登陆过的用户信息
-        String localName = mPresenter.getLocalUserName(true);
+        String localName = mPresenter.getLocalUserName(false);
         if (!TextUtils.isEmpty(localName)) {
             // 设置在用户名上，并将该信息删除
             mEtUserName.setText(localName);
