@@ -50,6 +50,18 @@ public class CircleTextView extends android.support.v7.widget.AppCompatTextView 
         this.setBackground(null);
     }
 
+    public void setName(String name, int isMan) {
+        if (!TextUtils.isEmpty(name)) {
+            if (name.length() < 3) {
+                this.setText(name);
+            } else {
+                this.setText(name.substring(name.length() - 2, name.length()));
+            }
+        }
+        this.isMan = isMan == 1;
+        this.setBackground(null);
+    }
+
     @Override
     public void setBackground(Drawable background) {
         super.setBackground(getResources().getDrawable(isMan ? R.drawable.shape_circle_icon_men : R.drawable.shape_circle_icon_women));

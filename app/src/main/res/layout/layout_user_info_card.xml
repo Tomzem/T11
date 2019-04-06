@@ -23,7 +23,6 @@
                 android:id="@+id/tv_user_real_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="好长江"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
                 android:textSize="@dimen/font_size_18"/>
@@ -31,8 +30,7 @@
             <TextView
                 android:id="@+id/tv_user_name"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1418014012"/>
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
@@ -51,7 +49,6 @@
         android:layout_marginLeft="@dimen/widget_size_15"
         android:layout_marginStart="@dimen/widget_size_15"
         android:layout_marginBottom="@dimen/widget_size_15"
-        android:text="数计学院/体育部"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/font_size_15" />
 

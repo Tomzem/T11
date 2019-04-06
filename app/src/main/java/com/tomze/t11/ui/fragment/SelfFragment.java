@@ -9,6 +9,7 @@ import com.tomze.t11.R;
 import com.tomze.t11.app.ConfigManager;
 import com.tomze.t11.base.mvp.BasePresenterFragment;
 import com.tomze.t11.bean.Menu;
+import com.tomze.t11.bean.User;
 import com.tomze.t11.ui.adapter.MenuAdapter;
 import com.tomze.t11.ui.pre.SelfPresenter;
 import com.tomze.t11.widget.UserInfoCard;
@@ -44,6 +45,9 @@ public class SelfFragment extends BasePresenterFragment<SelfPresenter>{
     @Override
     protected void initBefore(View view) {
         super.initBefore(view);
+
+        mUicUserInfo.setUserInfo(new User("1418014016", "毛宁",
+                2, "数计学院/体育部"));
         MenuAdapter menuAdapter = new MenuAdapter(ConfigManager.getSelfMenu(), mContext, R.layout.item_menu_layout);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

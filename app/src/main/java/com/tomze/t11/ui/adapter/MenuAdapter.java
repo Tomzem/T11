@@ -27,7 +27,7 @@ public class MenuAdapter extends BaseRecycler.Adapter<Menu> {
         Menu menu = mDataSource.get(position);
         boolean isShow = !(menu.menuId == 0);
 
-        holder.getContentView().setBackgroundColor(mContext.getResources().getColor(isShow ? R.color.colorTransparent : R.color.colorWhite));
+        holder.getContentView().setBackgroundColor(mContext.getResources().getColor(isShow ? R.color.colorWhite : R.color.colorTransparent));
         holder.isShow(R.id.v_line, isShow);
 
         ImageView mImgIcon = holder.getView(R.id.img_menu_icon);

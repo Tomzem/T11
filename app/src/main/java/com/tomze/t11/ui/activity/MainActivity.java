@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         StatusBarUtil.setStatusBarDarkTheme(this, true);
         StatusBarUtil.setStatusBarColor(this, getResources().getColor(R.color.colorBackground));
         unbinder = ButterKnife.bind(this);
-        setSelect(0);
+        setSelect(2);
     }
 
     @OnClick({R.id.tab_project,R.id.tab_organization,R.id.tab_self})
