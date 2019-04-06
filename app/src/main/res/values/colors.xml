@@ -7,6 +7,7 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBackground">#F9F9F9</color>
+    <color name="colorBottomIcon">#1296db</color>
     <!--登录界面使用色-->
     <color name="colorLoginBackground">#80000000</color>
     <color name="colorHintText">#AAAAAA</color>

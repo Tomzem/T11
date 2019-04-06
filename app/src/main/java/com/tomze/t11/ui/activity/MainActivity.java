@@ -6,6 +6,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.tomze.t11.R;
 import com.tomze.t11.ui.fragment.OrganizationFragment;
@@ -13,6 +15,7 @@ import com.tomze.t11.ui.fragment.ProjectFragment;
 import com.tomze.t11.ui.fragment.SelfFragment;
 import com.tomze.t11.util.StatusBarUtil;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
@@ -24,10 +27,29 @@ import butterknife.Unbinder;
  */
 public class MainActivity extends AppCompatActivity {
 
+    @BindView(R.id.ibt_project)
+    ImageButton mIbtProject;
+
+    @BindView(R.id.ibt_organization)
+    ImageButton mIbtOrganization;
+
+    @BindView(R.id.ibt_self)
+    ImageButton mIbtSelf;
+
+    @BindView(R.id.tv_project)
+    TextView mTvProject;
+
+    @BindView(R.id.tv_organization)
+    TextView mTvOrganization;
+
+    @BindView(R.id.tv_self)
+    TextView mTvSelf;
+
     private OrganizationFragment mFmOrganization;
     private ProjectFragment mFmProject;
     private SelfFragment mFmSelf;
     private Unbinder unbinder;
+    private int selectIndex = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         StatusBarUtil.setStatusBarDarkTheme(this, true);
         StatusBarUtil.setStatusBarColor(this, getResources().getColor(R.color.colorBackground));
         unbinder = ButterKnife.bind(this);
-        setSelect(2);
+        setSelect(0);
     }
 
     @OnClick({R.id.tab_project,R.id.tab_organization,R.id.tab_self})
@@ -53,6 +75,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setSelect(int i) {
+        if (selectIndex == i) {
+            return;
+        }
+        selectIndex = i;
         resetImg();
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
@@ -64,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
                     transaction.add(R.id.frame_main, mFmProject);
                 }
                 transaction.show(mFmProject);
+                mIbtProject.setImageResource(R.drawable.ic_bottom_project_selected);
+                mTvProject.setTextColor(getResources().getColor(R.color.colorBottomIcon));
                 break;
             case 1:
                 if (mFmOrganization==null){
@@ -71,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
                     transaction.add(R.id.frame_main,mFmOrganization);
                 }
                 transaction.show(mFmOrganization);
+                mIbtOrganization.setImageResource(R.drawable.ic_bottom_group_selected);
+                mTvOrganization.setTextColor(getResources().getColor(R.color.colorBottomIcon));
                 break;
             case 2:
                 if (mFmSelf ==null){
@@ -78,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
                     transaction.add(R.id.frame_main, mFmSelf);
                 }
                 transaction.show(mFmSelf);
+                mIbtSelf.setImageResource(R.drawable.ic_bottom_self_selected);
+                mTvSelf.setTextColor(getResources().getColor(R.color.colorBottomIcon));
                 break;
         }
         transaction.commit();
@@ -103,6 +135,12 @@ public class MainActivity extends AppCompatActivity {
      * 将所有图片切换成暗色
      */
     private void resetImg() {
+        mIbtProject.setImageResource(R.drawable.ic_bottom_project);
+        mIbtOrganization.setImageResource(R.drawable.ic_bottom_group);
+        mIbtSelf.setImageResource(R.drawable.ic_bottom_self);
+        mTvProject.setTextColor(getResources().getColor(R.color.colorBlack));
+        mTvOrganization.setTextColor(getResources().getColor(R.color.colorBlack));
+        mTvSelf.setTextColor(getResources().getColor(R.color.colorBlack));
     }
 
     @Override

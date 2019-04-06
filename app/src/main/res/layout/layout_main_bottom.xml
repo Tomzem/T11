@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/widget_size_60"
+    android:layout_height="@dimen/widget_size_65"
+    android:paddingTop="@dimen/widget_size_5"
     android:orientation="horizontal"
-    android:background="@color/colorWhite">
+    android:background="@drawable/shape_bottom_background">
 
     <LinearLayout
         android:id="@+id/tab_project"
@@ -12,14 +13,13 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
-        android:background="?android:attr/selectableItemBackground"
         android:orientation="vertical">
         <ImageButton
             android:id="@+id/ibt_project"
             android:layout_width="@dimen/widget_size_32"
             android:layout_height= "@dimen/widget_size_32"
             android:background="@null"
-            android:src="@mipmap/ic_t"
+            android:src="@drawable/ic_bottom_project"
             android:clickable="false"
             android:elevation="@dimen/widget_size_40"
             tools:targetApi="lollipop" />
@@ -39,14 +39,13 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
-        android:background="?android:attr/selectableItemBackground"
         android:orientation="vertical">
         <ImageButton
             android:id="@+id/ibt_organization"
             android:layout_width="@dimen/widget_size_32"
             android:layout_height= "@dimen/widget_size_32"
             android:background="@null"
-            android:src="@mipmap/ic_t"
+            android:src="@drawable/ic_bottom_group"
             android:clickable="false"/>
         <TextView
             android:id="@+id/tv_organization"
@@ -64,14 +63,13 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
-        android:background="?android:attr/selectableItemBackground"
         android:orientation="vertical">
         <ImageButton
             android:id="@+id/ibt_self"
             android:layout_width="@dimen/widget_size_32"
             android:layout_height= "@dimen/widget_size_32"
             android:background="@null"
-            android:src="@mipmap/ic_t"
+            android:src="@drawable/ic_bottom_self"
             android:clickable="false"/>
         <TextView
             android:id="@+id/tv_self"
