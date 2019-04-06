@@ -3,6 +3,7 @@ package com.tomze.t11.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
@@ -27,6 +28,17 @@ public final class T11Utils {
     static long[] mClicks = new long[2];
 
     private T11Utils() {}
+
+    /**
+     * 判断当前 应使用什么环境
+     * @param context
+     * @return
+     */
+    public static boolean isDebug(Context context){
+        boolean isDebug = context.getApplicationInfo() != null &&
+                (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+        return isDebug;
+    }
 
     public static void jump2ActivityFinish(Activity thisActivity, Class<?> cls) {
         jump2Activity(thisActivity, cls, true);
