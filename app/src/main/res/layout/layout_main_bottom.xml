@@ -7,7 +7,7 @@
     android:background="@color/colorWhite">
 
     <LinearLayout
-        android:id="@+id/tab_index"
+        android:id="@+id/tab_project"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -15,7 +15,7 @@
         android:background="?android:attr/selectableItemBackground"
         android:orientation="vertical">
         <ImageButton
-            android:id="@+id/ibt_index"
+            android:id="@+id/ibt_project"
             android:layout_width="@dimen/widget_size_32"
             android:layout_height= "@dimen/widget_size_32"
             android:background="@null"
@@ -24,7 +24,7 @@
             android:elevation="@dimen/widget_size_40"
             tools:targetApi="lollipop" />
         <TextView
-            android:id="@+id/tv_index"
+            android:id="@+id/tv_project"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/widget_size_3"
@@ -34,7 +34,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/tab_navigation"
+        android:id="@+id/tab_organization"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -42,14 +42,14 @@
         android:background="?android:attr/selectableItemBackground"
         android:orientation="vertical">
         <ImageButton
-            android:id="@+id/ibt_navigation"
+            android:id="@+id/ibt_organization"
             android:layout_width="@dimen/widget_size_32"
             android:layout_height= "@dimen/widget_size_32"
             android:background="@null"
             android:src="@mipmap/ic_t"
             android:clickable="false"/>
         <TextView
-            android:id="@+id/tv_navigation"
+            android:id="@+id/tv_organization"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/widget_size_3"
