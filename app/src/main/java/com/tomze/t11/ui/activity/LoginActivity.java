@@ -1,6 +1,5 @@
 package com.tomze.t11.ui.activity;
 
-import android.content.Intent;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -11,17 +10,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tomze.t11.R;
-import com.tomze.t11.base.BaseActivity;
+import com.tomze.t11.base.mvp.BasePresenterActivity;
+import com.tomze.t11.ui.pre.LoginPresenter;
 import com.tomze.t11.util.StatusBarUtil;
 import com.tomze.t11.util.T11Toast;
+import com.tomze.t11.util.T11Utils;
 
 import butterknife.BindView;
+
 /**
  * @author Tomze
  * @time 2019年04月03日 21:03
  * @desc Activity登录
  */
-public class LoginActivity extends BaseActivity implements View.OnClickListener,TextWatcher{
+public class LoginActivity extends BasePresenterActivity<LoginPresenter> implements View.OnClickListener,TextWatcher{
 
     @BindView(R.id.img_login_background)
     ImageView mImgLoginBackground;
@@ -51,9 +53,22 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     protected void initBefore() {
+        super.initBefore();
         //用来设置整体下移，状态栏沉浸
         StatusBarUtil.setRootViewFitsSystemWindows(this, false);
-        //TODO：获取本地存储的当前登陆过的用户信息 用来与输入的用户进行匹配
+        //获取本地存储的当前登陆过的用户信息
+        String localName = mPresenter.getLocalUserName(true);
+        if (!TextUtils.isEmpty(localName)) {
+            // 设置在用户名上，并将该信息删除
+            mEtUserName.setText(localName);
+            String userRealName = mPresenter.getUserRealName(localName);
+            setUserRealName(userRealName);
+        }
+    }
+
+    @Override
+    protected LoginPresenter initPresenter() {
+        return new LoginPresenter(this);
     }
 
     @Override
@@ -71,18 +86,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 if (!isLoginBtnClick) {
                     return;
                 }
-                toLogin();
+                mPresenter.login(mEtUserName.getText().toString(), mEtUserPassword.getText().toString());
                 break;
             case R.id.tv_forget_password:
                 break;
         }
     }
 
-    private void toLogin() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-        T11Toast.success(mContext, "登录成功").show();
+    public void toJump() {
+        T11Utils.jump2ActivityFinish(this, MainActivity.class);
     }
 
     @Override
@@ -106,16 +118,23 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         }
         if (TextUtils.isEmpty(inputText)) {
             isLoginBtnClick = false;
-            mTvLoginWelcome.setText(getResources().getString(R.string.login_welcome));
         } else if (inputText.equals(inputUserName)) {
             // 输入用户名
-            String welcomeText = String.format(getResources().getString(R.string.login_welcome_username), inputText);
-            mTvLoginWelcome.setText(welcomeText);
+            setUserRealName(mPresenter.getUserRealName(inputUserName));
         }
         //输入密码
         if (inputUserPassword.length() > 5 && inputUserName.length() > 5) {
             isLoginBtnClick = true;
             mBtLoginSystem.setBackgroundResource(R.drawable.login_button_selector);
+        }
+    }
+
+    private void setUserRealName(String userRealName) {
+        if (TextUtils.isEmpty(userRealName)) {
+            mTvLoginWelcome.setText(getResources().getString(R.string.login_welcome));
+        } else {
+            String welcomeText = String.format(getResources().getString(R.string.login_welcome_username), userRealName);
+            mTvLoginWelcome.setText(welcomeText);
         }
     }
 }

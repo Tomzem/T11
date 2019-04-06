@@ -1,6 +1,8 @@
 package com.tomze.t11.util;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
@@ -10,6 +12,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.content.res.AppCompatResources;
 import android.view.View;
 
@@ -24,6 +27,31 @@ public final class T11Utils {
     static long[] mClicks = new long[2];
 
     private T11Utils() {}
+
+    public static void jump2ActivityFinish(Activity thisActivity, Class<?> cls) {
+        jump2Activity(thisActivity, cls, true);
+    }
+
+    public static  void jump2ActivityNoFinish(Activity thisActivity, Class<?> cls) {
+        jump2Activity(thisActivity, cls, false);
+    }
+
+    /**
+     *  跳转Activity
+     * @param activity
+     * @param cls
+     * @param isFinish
+     */
+    private static void jump2Activity(Activity activity, Class<?> cls, boolean isFinish) {
+        if (cls != null && activity != null) {
+            Intent intent = new Intent(activity, cls);
+            activity.startActivity(intent);
+            activity.overridePendingTransition(R.anim.slide_right_in, R.anim.slide_left_out);
+            if (isFinish) {
+                activity.finish();
+            }
+        }
+    }
 
     /**
      * 判断是否双击，快速的重复请求
