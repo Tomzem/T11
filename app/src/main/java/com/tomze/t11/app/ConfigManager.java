@@ -18,21 +18,14 @@ public class ConfigManager {
     // 默认开屏显示跳转时间
     public static int DEFAULT_JUMP_TIME = 0;
 
-    public static Object[][] SELF_MENU = {
-            {101, "个人", R.drawable.ic_user_info, "", 0},
-            {102, "通知", R.drawable.ic_user_nofication, "", 0},
-            {103, "反馈", R.drawable.ic_user_feedback, "", 0},
-            {104, "关于", R.drawable.ic_user_about, "", 0},
-    };
-
     /**
-     * 获取个人界面菜单
+     * 获取菜单
      * @return
      */
-    public static List<Menu> getSelfMenu() {
+    public static List<Menu> getMenu(Object[][] menus) {
         List<Menu> menuList = new ArrayList<>();
-        for (int i = 0; i < SELF_MENU.length; i++) {
-            Menu menu = parseMenu(SELF_MENU[i]);
+        for (int i = 0; i < menus.length; i++) {
+            Menu menu = parseMenu(menus[i]);
             if (menu == null) {
                 continue;
             }

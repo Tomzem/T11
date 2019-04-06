@@ -20,6 +20,8 @@ import java.util.List;
  * @author Tomze
  * @time 2019年04月06日 17:56
  * @desc RecyclerView Adapter和ViewHolder基类
+ *       为了维护，不同地方 不要使用同一个Adapter
+ *       除非长相一样，回发生同种变化
  */
 public class BaseRecycler {
 
@@ -28,6 +30,7 @@ public class BaseRecycler {
         protected List<T> mDataSource;
         protected Context mContext;
         private int resID;
+        private OnItemClickListener<T> onItemClickListener;
 
         public Adapter(List<T> mDataSource, Context mContext, int resID) {
             this.mDataSource = mDataSource;
@@ -42,9 +45,17 @@ public class BaseRecycler {
         }
 
         @Override
-        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
-            ViewHolder holder = (ViewHolder)viewHolder;
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int position) {
+            final ViewHolder holder = (ViewHolder)viewHolder;
             initView(holder, position);
+            holder.getContentView().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener != null) {
+                        onItemClickListener.onItemClick(holder, position, mDataSource.get(position));
+                    }
+                }
+            });
         }
 
         protected abstract void initView(ViewHolder holder, int position);
@@ -62,6 +73,14 @@ public class BaseRecycler {
         public void deleteList(int position) {
             mDataSource.remove(position);
             this.notifyDataSetChanged();
+        }
+
+        public void setOnItemCLickListener(OnItemClickListener<T> onItemClickListener) {
+            this.onItemClickListener = onItemClickListener;
+        }
+
+        public interface OnItemClickListener<T>{
+            void onItemClick(ViewHolder holder, int position, T t);
         }
     }
 
