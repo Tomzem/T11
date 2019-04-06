@@ -13,12 +13,12 @@ import java.util.List;
 
 /**
  * @author Tomze
- * @time 2019年04月06日 18:22
- * @desc 个人菜单界面Adapter
+ * @time 2019年04月07日 0:17
+ * @desc 个人信息Adapter
  */
-public class MenuAdapter extends BaseRecycler.Adapter<Menu> {
+public class SelfInfoAdapter extends BaseRecycler.Adapter<Menu>{
 
-    public MenuAdapter(List<Menu> mDataSource, Context mContext, int resID) {
+    public SelfInfoAdapter(List<Menu> mDataSource, Context mContext, int resID) {
         super(mDataSource, mContext, resID);
     }
 
@@ -26,13 +26,10 @@ public class MenuAdapter extends BaseRecycler.Adapter<Menu> {
     protected void initView(BaseRecycler.ViewHolder holder, int position) {
         Menu menu = mDataSource.get(position);
         boolean isShow = !(menu.menuId == 0);
-
         holder.getContentView().setBackgroundColor(mContext.getResources().getColor(isShow ? R.color.colorWhite : R.color.colorTransparent));
-        holder.isShow(R.id.v_line, isShow);
-
-        ImageView mImgIcon = holder.getView(R.id.img_menu_icon);
-        mImgIcon.setImageResource(menu.menuDrawable < 0 ? 0 : menu.menuDrawable);
-        holder.isShow(mImgIcon, isShow);
+        TextView mTvTitle = holder.getView(R.id.tv_title_name);
+        mTvTitle.setText(TextUtils.isEmpty(menu.menuName) ? "" : menu.menuName);
+        holder.isShow(mTvTitle, !isShow);
 
         TextView mTvName = holder.getView(R.id.tv_menu_name);
         mTvName.setText(TextUtils.isEmpty(menu.menuName) ? "" : menu.menuName);
