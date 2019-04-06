@@ -19,4 +19,7 @@
     <color name="successColor">#388E3C</color>
     <color name="warningColor">#FFA900</color>
     <color name="normalColor">#353A3E</color>
+    <!--原型图片icon-->
+    <color name="colorMen">#3398e7</color>
+    <color name="colorWomen">#fc58bd</color>
 </resources>
