@@ -13,7 +13,7 @@
     <Button
         android:id="@+id/btn_out_login"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_size_62"
+        android:layout_height="@dimen/widget_size_48"
         android:background="@color/colorOutLoginBtn"
         android:text="@string/out_login"
         android:textSize="@dimen/font_size_14"

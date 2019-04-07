@@ -13,11 +13,14 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.content.res.AppCompatResources;
 import android.view.View;
 
 import com.tomze.t11.R;
+import com.tomze.t11.bean.Menu;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * author:Tomze
@@ -28,6 +31,40 @@ public final class T11Utils {
     static long[] mClicks = new long[2];
 
     private T11Utils() {}
+
+    /**
+     * 获取菜单
+     * @return
+     */
+    public static List<Menu> getMenu(Object[][] menus) {
+        List<Menu> menuList = new ArrayList<>();
+        for (int i = 0; i < menus.length; i++) {
+            Menu menu = parseMenu(menus[i]);
+            if (menu == null) {
+                continue;
+            }
+            menuList.add(menu);
+        }
+        return menuList;
+    }
+
+    /**
+     * 解析菜单
+     * @param objects
+     * @return
+     */
+    private static Menu parseMenu(Object[] objects) {
+        if (objects.length < 5) {
+            return null;
+        }
+        Menu menu = new Menu();
+        menu.menuId = (int) objects[0];
+        menu.menuName = (String) objects[1];
+        menu.menuDrawable = (int) objects[2];
+        menu.menuRight = (String) objects[3];
+        menu.menuRightPic = (int) objects[4];
+        return menu;
+    }
 
     /**
      * 判断当前 应使用什么环境

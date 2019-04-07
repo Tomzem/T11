@@ -23,6 +23,7 @@ public class MenuData {
      *  用户个人信息Item
      */
     public static Object[][] USER_INFO = {
+            {0, "个人信息", 0,  "",     0},
             {201, "学号", 0,  "",     0},
             {202, "姓名", 0,  "",     0},
             {203, "班级", 0,  "",     0},

@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.tomze.t11.R;
-import com.tomze.t11.app.ConfigManager;
 import com.tomze.t11.app.MenuData;
 import com.tomze.t11.base.BaseRecycler;
 import com.tomze.t11.base.mvp.BasePresenterFragment;
@@ -17,9 +16,6 @@ import com.tomze.t11.ui.adapter.MenuAdapter;
 import com.tomze.t11.ui.pre.SelfPresenter;
 import com.tomze.t11.util.T11Utils;
 import com.tomze.t11.widget.UserInfoCard;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 
@@ -52,7 +48,7 @@ public class SelfFragment extends BasePresenterFragment<SelfPresenter> implement
 
         mUicUserInfo.setUserInfo(new User("1418014016", "毛宁",
                 2, "数计学院/体育部"));
-        MenuAdapter menuAdapter = new MenuAdapter(ConfigManager.getMenu(MenuData.SELF_MENU), mContext, R.layout.item_menu_layout);
+        MenuAdapter menuAdapter = new MenuAdapter(T11Utils.getMenu(MenuData.SELF_MENU), mContext, R.layout.item_menu_layout);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRvSelfMenu.setLayoutManager(linearLayoutManager);
