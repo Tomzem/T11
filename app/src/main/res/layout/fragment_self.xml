@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.tomze.t11.widget.UserInfoCard
+    <com.tomze.tiu.widget.UserInfoCard
         android:id="@+id/uic_user_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

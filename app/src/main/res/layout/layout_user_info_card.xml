@@ -34,7 +34,7 @@
 
         </LinearLayout>
 
-        <com.tomze.t11.widget.CircleTextView
+        <com.tomze.tiu.widget.CircleTextView
             android:id="@+id/ctv_user_name"
             android:layout_width="@dimen/widget_size_48"
             android:layout_height="@dimen/widget_size_48"
