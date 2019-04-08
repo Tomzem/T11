@@ -41,7 +41,7 @@
         android:layout_below="@id/img_login_logo"
         android:layout_marginLeft="@dimen/widget_size_40"
         android:layout_marginStart="@dimen/widget_size_40"
-        android:layout_marginTop="@dimen/widget_size_70"
+        android:layout_marginTop="@dimen/widget_size_100"
         android:text="@string/user_name"
         android:textColor="@color/colorWhite"/>
 
@@ -99,7 +99,7 @@
         android:text="@string/login_text"
         android:textSize="@dimen/font_size_16"
         android:textColor="@color/colorWhite"
-        android:background="@drawable/login_button_selector"/>
+        android:background="@drawable/login_button_dis_enable"/>
 
     <TextView
         android:id="@+id/tv_forget_password"

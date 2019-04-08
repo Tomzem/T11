@@ -18,10 +18,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * @ClassName: StatusBarUtil
- * @Description:
- * @Author: dingchao
- * @Date: 2018/11/8 15:15
+ * @author Tomze
+ * @time 2019年04月03日 21:03
+ * @desc 状态栏工具类
  */
 public class StatusBarUtil {
     public final static int TYPE_MIUI = 0;

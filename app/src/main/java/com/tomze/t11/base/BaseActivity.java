@@ -13,7 +13,7 @@ import butterknife.Unbinder;
 /**
  * @author Tomze
  * @time 2019年04月03日 21:03
- * @desc
+ * @desc Activity基类
  */
 public abstract class BaseActivity extends Activity {
 

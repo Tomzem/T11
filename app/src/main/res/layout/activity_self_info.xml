@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_user_info"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btn_out_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_size_48"
+        android:background="@color/colorOutLoginBtn"
+        android:text="@string/out_login"
+        android:textSize="@dimen/font_size_14"
+        android:textColor="@color/colorWhite"/>
+
+</LinearLayout>
